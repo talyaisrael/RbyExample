@@ -6,6 +6,11 @@ status = as.integer(twins$Social)
 Page 55, line 1. Due to changes in R-2.14.0,
 replace FUN=mean with FUN=colMeans
 
+Page 55. Due to changes in R-4.0.0, replace
+as.integer(Gender)
+with
+as.numeric(factor(Gender))
+
 Page 83, line 2 from bottom.
 counts = cbind(Bin, Weldon) should be 
 counts = cbind(Binom, Weldon)
@@ -17,9 +22,6 @@ plot(bgsu$Year, bgsu$Enrollment)
 Page 147
 Should be
 stem(froot)
-
-Page 224 - line following displayed equation for F statistic:
-"between sample error MSE" should be "between sample error MST"
 
 Page 260
 Should be
@@ -42,18 +44,4 @@ R code says 100,000 simulations.
 Page 288, line 4
 Should be
 sim = metrop.hasting.rw(mylogpost, 1, 0.2, 1000, 331.6, 270.3)
-
-Comments:
-
-Page 24
-If murder.pct was created previously (as in the example using attach)
-then it will remain as a global variable. To see what happens using
-with(), try removing murder.pct:
-
- > rm(murder.pct)
- > with(USArrests, expr={
- +     murder.pct = 100 * Murder / (Murder + Assault + Rape)
- +     })
- > murder.pct
- Error: object 'murder.pct' not found
 
